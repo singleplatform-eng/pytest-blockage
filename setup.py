@@ -2,8 +2,8 @@ from setuptools import setup
 
 
 setup(
-    name='pytest-blockage',
-    version='0.2.1.dev0',
+    name='sp-pytest-blockage',
+    version='0.2.1',
     description='Disable network requests during a test run.',
     long_description=(open('README.rst').read() +
                       open('CHANGELOG.rst').read()),
