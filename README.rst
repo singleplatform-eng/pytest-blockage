@@ -33,6 +33,13 @@ the argument names mentioned under usage::
 
     blockage=true
     blockage-http-whitelist=some_site
-    blickage-smtp-whitelist=fake_smtp
+    blockage-smtp-whitelist=fake_smtp
+
+To store the settings in a setup.cfg or other ini style file::
+
+    [tool:pytest]
+    blockage=true
+    blockage-http-whitelist='some_site,othersite,last-site'
+    blockage-smtp-whitelist='smtp-server'
 
 
