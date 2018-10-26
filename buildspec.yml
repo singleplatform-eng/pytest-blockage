@@ -1,0 +1,21 @@
+version: 0.2
+
+env:
+  variable:
+    PIP_REPO: 'pip.test.singleplatform.co'
+
+phases:
+  install:
+    commands:
+      - mkdir -p dist
+      - pip config set global.index-url https://$PIP_REPO/simple
+      - pip config set global.trusted-host $PIP_REPO
+      - pip config set global.extra-index-url https://pypi.python.org/simple
+  build:
+    commands:
+      - python setup.py check
+      - python setup.py test
+      - pip wheel --wheel-dir=dist .
+  post_build:
+    commands:
+      - piprepo sync dist s3://$PIP_REPO
